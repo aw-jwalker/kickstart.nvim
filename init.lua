@@ -161,10 +161,6 @@ vim.opt.scrolloff = 10
 -- See `:help 'confirm'`
 vim.opt.confirm = true
 
--- Autosave every few seconds of inactivity
-vim.opt.updatetime = 1000 -- Save after 1 second of no cursor movement
-vim.opt.swapfile = true -- Keep swap files enabled for recovery
-
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -347,6 +343,7 @@ require('lazy').setup({
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>x', group = 'E[x]ecute' },
       },
     },
   },
@@ -994,18 +991,18 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.debug',
+  require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
@@ -1035,38 +1032,3 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
---
---
----- Set tab settings
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
--- Set up filetype-specific indentation
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = {
-    'python',
-    'pyrex',
-  },
-  callback = function()
-    vim.bo.shiftwidth = 4
-    vim.bo.tabstop = 4
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = {
-    'javascript',
-    'typescript',
-    'javascriptreact',
-    'typescriptreact',
-    'json',
-  },
-  callback = function()
-    vim.bo.shiftwidth = 2
-    vim.bo.tabstop = 2
-  end,
-})
