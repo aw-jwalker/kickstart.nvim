@@ -161,6 +161,10 @@ vim.opt.scrolloff = 10
 -- See `:help 'confirm'`
 vim.opt.confirm = true
 
+-- Autosave every few seconds of inactivity
+vim.opt.updatetime = 1000 -- Save after 1 second of no cursor movement
+vim.opt.swapfile = true -- Keep swap files enabled for recovery
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -1031,3 +1035,38 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
+--
+---- Set tab settings
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+-- Set up filetype-specific indentation
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = {
+    'python',
+    'pyrex',
+  },
+  callback = function()
+    vim.bo.shiftwidth = 4
+    vim.bo.tabstop = 4
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = {
+    'javascript',
+    'typescript',
+    'javascriptreact',
+    'typescriptreact',
+    'json',
+  },
+  callback = function()
+    vim.bo.shiftwidth = 2
+    vim.bo.tabstop = 2
+  end,
+})
