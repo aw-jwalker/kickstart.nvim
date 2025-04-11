@@ -102,7 +102,7 @@ vim.g.have_nerd_font = false
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -336,14 +336,15 @@ require('lazy').setup({
 
       -- Document existing key chains
       spec = {
-        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-        { '<leader>d', group = '[D]ocument' },
-        { '<leader>r', group = '[R]ename' },
-        { '<leader>s', group = '[S]earch' },
-        { '<leader>w', group = '[W]orkspace' },
-        { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>c', group = '[c]ode', mode = { 'n', 'x' } },
+        { '<leader>d', group = '[d]ocument' },
+        { '<leader>r', group = '[r]ename' },
+        { '<leader>s', group = '[s]earch' },
+        { '<leader>w', group = '[w]orkspace' },
+        { '<leader>t', group = '[t]oggle' },
+        { '<leader>H', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { '<leader>x', group = 'E[x]ecute' },
+        { '<leader>h', group = '[h]arpoon' },
       },
     },
   },
@@ -680,7 +681,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
+        ts_ls = {},
         --
 
         lua_ls = {
