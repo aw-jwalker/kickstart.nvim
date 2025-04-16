@@ -13,6 +13,9 @@ return {
     vim.keymap.set('n', '<leader>hh', function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = 'Harpoon quick menu' })
+    vim.keymap.set('n', '<leader>hr', function()
+      harpoon:list():remove()
+    end, { desc = 'Remove current file from harpoon' })
 
     -- Nav keymaps
     vim.keymap.set('n', '<C-h>', function()

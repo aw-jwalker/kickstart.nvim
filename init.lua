@@ -1033,3 +1033,24 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- File type-specific indentation settings
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('IndentationSettings', { clear = true }),
+  pattern = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'js', 'ts', 'jsx', 'tsx' },
+  callback = function()
+    vim.bo.shiftwidth = 2
+    vim.bo.tabstop = 2
+    vim.bo.expandtab = true -- Use spaces instead of tabs
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('PythonIndentation', { clear = true }),
+  pattern = { 'python', 'py' },
+  callback = function()
+    vim.bo.shiftwidth = 4
+    vim.bo.tabstop = 4
+    vim.bo.expandtab = true -- Use spaces instead of tabs
+  end,
+})
