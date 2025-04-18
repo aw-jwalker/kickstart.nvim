@@ -1041,7 +1041,7 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.bo.shiftwidth = 2
     vim.bo.tabstop = 2
-    vim.bo.expandtab = true -- Use spaces instead of tabs
+    vim.bo.expandtab = true 
   end,
 })
 
@@ -1051,6 +1051,19 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.bo.shiftwidth = 4
     vim.bo.tabstop = 4
-    vim.bo.expandtab = true -- Use spaces instead of tabs
+    vim.bo.expandtab = true 
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('MarkdownIndentation', { clear = true }),
+  pattern = { 'markdown', 'md' },
+  callback = function()
+    vim.bo.shiftwidth = 2
+    vim.bo.tabstop = 2
+    vim.bo.expandtab = true 
+    vim.bo.textwidth = 80   
+    vim.wo.wrap = true      
+    vim.wo.linebreak = true 
   end,
 })
