@@ -995,7 +995,7 @@ require('lazy').setup({
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
-  require 'kickstart.plugins.autopairs',
+  -- require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
@@ -1041,7 +1041,7 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.bo.shiftwidth = 2
     vim.bo.tabstop = 2
-    vim.bo.expandtab = true 
+    vim.bo.expandtab = true
   end,
 })
 
@@ -1051,7 +1051,7 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.bo.shiftwidth = 4
     vim.bo.tabstop = 4
-    vim.bo.expandtab = true 
+    vim.bo.expandtab = true
   end,
 })
 
@@ -1061,9 +1061,9 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.bo.shiftwidth = 2
     vim.bo.tabstop = 2
-    vim.bo.expandtab = true 
-    vim.bo.textwidth = 80   
-    vim.wo.wrap = true      
-    vim.wo.linebreak = true 
+    vim.bo.expandtab = true
+    vim.bo.textwidth = 80
+    vim.wo.wrap = true
+    vim.wo.linebreak = true
   end,
 })
