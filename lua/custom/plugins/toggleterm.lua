@@ -32,6 +32,24 @@ return {
       },
     }
 
+    -- Lazygit function as a global function
+    _G._LAZYGIT_TOGGLE = function()
+      local Terminal = require('toggleterm.terminal').Terminal
+      local lazygit = Terminal:new {
+        cmd = 'lazygit',
+        hidden = true,
+        direction = 'float',
+        float_opts = {
+          border = 'curved',
+        },
+      }
+
+      lazygit:toggle()
+    end
+
+    -- Keybind to toggle Lazygit
+    vim.api.nvim_set_keymap('n', '<leader>xl', '<cmd>lua _G._LAZYGIT_TOGGLE()<CR>', { noremap = true, silent = true, desc = 'Open Lazygit' })
+
     _G._RUN_CURRENT_FILE = function()
       local file_ext = vim.fn.expand '%:e'
       local cmd = ''
