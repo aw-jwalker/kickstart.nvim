@@ -7,7 +7,7 @@ return {
     },
     opts = {
       debug = false,
-      context = 'selection', -- Include selected code as context by default
+      context = 'files', -- Include files
       mappings = {
         -- Quick chat prompts
         doc = {
@@ -35,14 +35,14 @@ return {
       vim.keymap.set('n', '<leader>ce', '<cmd>CopilotChatExplain<CR>', { desc = 'CopilotChat - Explain code' })
       vim.keymap.set('v', '<leader>ce', ':CopilotChatExplain<CR>', { desc = 'CopilotChat - Explain selection' })
 
-      local buf_exists = vim.fn.bufnr 'copilot-chat'
-      if buf_exists ~= -1 then
-        vim.api.nvim_set_current_buf(buf_exists)
-      else
-        local new_buf = vim.api.nvim_create_buf(false, true)
-        vim.api.nvim_buf_set_name(new_buf, 'copilot-chat')
-        vim.api.nvim_set_current_buf(new_buf)
-      end
+      -- local buf_exists = vim.fn.bufnr 'copilot-chat'
+      -- if buf_exists ~= -1 then
+      --   vim.api.nvim_set_current_buf(buf_exists)
+      -- else
+      --   local new_buf = vim.api.nvim_create_buf(false, true)
+      --   vim.api.nvim_buf_set_name(new_buf, 'copilot-chat')
+      --   vim.api.nvim_set_current_buf(new_buf)
+      -- end
     end,
   },
   {
@@ -51,17 +51,17 @@ return {
     config = function()
       vim.g.copilot_no_tab_map = true
       vim.g.copilot_assume_mapped = true
-      vim.g.copilot_filetypes = {
-        ['*'] = true,
-        ['lua'] = false,
-        ['markdown'] = false,
-        ['gitcommit'] = false,
-        ['gitrebase'] = false,
-        ['text'] = false,
-        ['help'] = false,
-        ['Telescope*'] = false,
-        ['harpoon'] = false,
-      }
+      -- vim.g.copilot_filetypes = {
+      --   ['*'] = true,
+      --   ['lua'] = false,
+      --   ['markdown'] = false,
+      --   ['gitcommit'] = false,
+      --   ['gitrebase'] = false,
+      --   ['text'] = false,
+      --   ['help'] = false,
+      --   ['Telescope*'] = false,
+      --   ['harpoon'] = false,
+      -- }
 
       vim.api.nvim_set_keymap('i', '<C-Tab>', 'copilot#Accept("<CR>")', { silent = true, expr = true })
     end,

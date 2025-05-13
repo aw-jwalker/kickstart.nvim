@@ -49,11 +49,14 @@ config.colors = {
 config.use_fancy_tab_bar = false -- Set to false for a more minimal tab bar
 config.window_decorations = 'RESIZE' -- Removes the title bar but keeps resize capability
 
-config.font = wezterm.font 'JetBrainsMono Nerd Font'
--- config.font = wezterm.font_with_fallback({
---	"JetBrainsMono Nerd Font",
---	{ family = "Symbols Nerd Font Mono", scale = 2 },
---})
+-- config.font = wezterm.font 'JetBrainsMono Nerd Font'
+config.font = wezterm.font_with_fallback {
+  'ZedMonoNerdFont',
+  'GoMonoNerdFont',
+  { family = 'InconsolataGoNerdFont', scale = 1.2 },
+  'CutiveMono',
+  'JetBrainsMono Nerd Font',
+}
 config.window_decorations = 'TITLE | RESIZE'
 config.initial_cols = 120
 config.initial_rows = 30
