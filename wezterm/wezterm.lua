@@ -4,6 +4,9 @@ local wezterm = require 'wezterm'
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+-- Configure WSL2 as the default shell
+config.default_prog = { 'wsl.exe', '~' }
+
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
@@ -51,10 +54,11 @@ config.window_decorations = 'RESIZE' -- Removes the title bar but keeps resize c
 
 -- config.font = wezterm.font 'JetBrainsMono Nerd Font'
 config.font = wezterm.font_with_fallback {
-  'ZedMonoNerdFont',
-  'GoMonoNerdFont',
-  { family = 'InconsolataGoNerdFont', scale = 1.2 },
-  'CutiveMono',
+  -- 'ZedMono Nerd Font',
+  -- 'ZedMonoNerdFont',
+  -- 'GoMonoNerdFont',
+  -- { family = 'InconsolataGoNerdFont', scale = 1.2 },
+  -- 'CutiveMono',
   'JetBrainsMono Nerd Font',
 }
 config.window_decorations = 'TITLE | RESIZE'
