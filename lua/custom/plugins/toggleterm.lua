@@ -13,22 +13,21 @@ return {
       open_mapping = [[<C-\>]],
       hide_numbers = false,
       shade_filetypes = {},
-      shade_terminals = true,
-      shading_factor = 2,
+      shade_terminals = false, -- Use consistent bg from theme
       start_in_insert = true,
       insert_mappings = true,
-      -- terminal_mappings = true,
       persist_size = true,
       direction = 'vertical',
       close_on_exit = true,
       shell = vim.o.shell,
+      -- Inherit from global highlights (NormalFloat, FloatBorder)
       float_opts = {
-        border = 'curved',
+        border = 'rounded',
         winblend = 0,
-        highlights = {
-          border = 'Normal',
-          background = 'Normal',
-        },
+      },
+      highlights = {
+        FloatBorder = { link = 'FloatBorder' },
+        NormalFloat = { link = 'NormalFloat' },
       },
     }
 
@@ -40,7 +39,7 @@ return {
         hidden = true,
         direction = 'float',
         float_opts = {
-          border = 'curved',
+          border = 'rounded', -- Consistent with other floating windows
         },
       }
 

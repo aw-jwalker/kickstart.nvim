@@ -4,7 +4,28 @@ return {
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
     local harpoon = require 'harpoon'
-    harpoon:setup()
+    harpoon:setup {
+      settings = {
+        save_on_toggle = true,
+        sync_on_ui_close = true,
+      },
+      -- Use rounded borders to match other floating windows
+      default = {
+        display = function(list_item)
+          return list_item.value
+        end,
+      },
+    }
+
+    -- Configure the UI window appearance
+    harpoon:extend {
+      UI_CREATE = function(cx)
+        -- Use rounded border style
+        vim.api.nvim_win_set_config(cx.win_id, {
+          border = 'rounded',
+        })
+      end,
+    }
 
     -- Basic keymaps
     vim.keymap.set('n', '<leader>ha', function()
