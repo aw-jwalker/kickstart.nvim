@@ -38,14 +38,15 @@ vim.api.nvim_create_autocmd('User', {
 })
 
 return {
-  'sindrets/diffview.nvim',
-  version = '*',
+  -- Use local fork for development (change back to 'sindrets/diffview.nvim' when done)
+  dir = '~/repos/diffview.nvim',
+  dev = true,
   config = function()
     require('diffview').setup {
       view = {
         -- Use inline diff (removed lines above added lines) instead of side-by-side
         default = {
-          layout = 'diff2_vertical',
+          layout = 'diff_unified',
         },
         merge_tool = {
           layout = 'diff3_vertical',
