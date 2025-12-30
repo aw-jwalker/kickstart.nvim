@@ -1011,5 +1011,18 @@ require('lazy').setup({
   },
 })
 
+-- [[ Custom Claude Code Integration ]]
+-- Load custom keymaps (yank with path, diffview)
+require 'custom.keymaps'
+
+-- Start directory watcher and hotreload for Claude Code integration
+vim.api.nvim_create_autocmd('VimEnter', {
+  group = vim.api.nvim_create_augroup('claude-code-integration', { clear = true }),
+  callback = function()
+    require('custom.directory-watcher').setup { path = vim.fn.getcwd() }
+    require('custom.hotreload').setup {}
+  end,
+})
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
