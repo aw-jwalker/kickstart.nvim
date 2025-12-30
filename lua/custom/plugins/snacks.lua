@@ -15,6 +15,8 @@ return {
     terminal = { enabled = true },
     -- Lazygit integration
     lazygit = { enabled = true },
+    -- Better vim.ui.input (replaces noice input)
+    input = { enabled = true },
   },
   keys = {
     -- File explorer
