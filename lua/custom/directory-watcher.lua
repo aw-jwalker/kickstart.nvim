@@ -67,7 +67,8 @@ M.setup = function(opts)
   end, debounce_delay)
 
   -- Start watching (wrapped for thread safety)
-  local ok, err = fs_event:start(path, { recursive = false }, vim.schedule_wrap(on_change))
+  -- Note: recursive=true may not work on Linux (libuv limitation), but works on macOS/Windows
+  local ok, err = fs_event:start(path, { recursive = true }, vim.schedule_wrap(on_change))
 
   if ok ~= 0 then
     return false

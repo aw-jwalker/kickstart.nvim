@@ -1,0 +1,21 @@
+{
+  "git_hash": "9e77dbdd1539fdf1639c4a9852e5522067319f8b",
+  "timestamp": "2026-01-02T14:40:49-05:00",
+  "project_type": "unknown",
+  "directory": "/home/aw-jwalker/.config/nvim",
+  "results": {
+    "typecheck": {
+      "status": "skipped",
+      "error_preview": "\n"
+    },
+    "lint": {
+      "status": "skipped",
+      "error_preview": "\n"
+    },
+    "test": {
+      "status": "skipped",
+      "summary": "\n",
+      "error_preview": ""
+    }
+  }
+}
