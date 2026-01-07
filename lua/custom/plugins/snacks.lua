@@ -22,6 +22,14 @@ return {
     words = { enabled = true },
     -- File explorer
     explorer = { enabled = true },
+    picker = {
+      sources = {
+        explorer = {
+          hidden = true, -- show hidden files (dotfiles)
+          ignored = true, -- show gitignored files (like thoughts/)
+        },
+      },
+    },
     -- Terminal
     terminal = { enabled = true },
     -- Lazygit integration

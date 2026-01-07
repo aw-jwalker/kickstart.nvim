@@ -1,11 +1,3 @@
--- Close diffview completely when leaving the view
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'DiffviewViewLeave',
-  callback = function()
-    vim.cmd ':DiffviewClose'
-  end,
-})
-
 return {
   dir = '~/repos/diffview.nvim',
   dev = true,
