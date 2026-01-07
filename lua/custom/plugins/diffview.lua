@@ -12,10 +12,10 @@ return {
         layout = 'diff_unified',
       },
       merge_tool = {
-        layout = 'diff3_vertical',
+        layout = 'diff4_mixed',
       },
       file_history = {
-        layout = 'diff2_vertical',
+        layout = 'diff_unified',
       },
     },
     default_args = {
