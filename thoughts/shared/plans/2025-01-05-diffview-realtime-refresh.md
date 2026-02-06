@@ -144,8 +144,8 @@ return {
 
 #### Manual Verification:
 
-- [ ] Diffview opens with correct layout (unified diff)
-- [ ] File panel width is 25
+- [x] Diffview opens with correct layout (unified diff)
+- [x] File panel width is 25
 
 ---
 
@@ -239,14 +239,14 @@ end
 
 #### Automated Verification:
 
-- [ ] Diffview opens without errors
-- [ ] No timer errors in `:messages`
+- [x] Diffview opens without errors
+- [x] No timer errors in `:messages`
 
 #### Manual Verification:
 
-- [ ] File panel updates when files change externally (even in background tab)
-- [ ] Updates happen within ~2 seconds of file change
-- [ ] Code buffer does NOT auto-update
+- [x] File panel updates when files change externally (even in background tab)
+- [x] Updates happen within ~2 seconds of file change
+- [x] Code buffer does NOT auto-update
 
 ---
 
@@ -320,14 +320,14 @@ DiffviewUnread = "DiagnosticInfo", -- or a custom color
 
 #### Automated Verification:
 
-- [ ] No Lua errors on open/close
-- [ ] Highlight group exists
+- [x] No Lua errors on open/close
+- [x] Highlight group exists
 
 #### Manual Verification:
 
-- [ ] Modified files show unread indicator (\*) in file panel
+- [ ] Modified files show unread indicator (●) in file panel
 - [ ] Clicking into a file clears the unread indicator
-- [ ] Currently open file shows unread indicator (\*) if modified externally
+- [ ] Currently open file shows unread indicator (●) if modified externally
 - [ ] Indicator is visually distinct and noticeable
 
 ---
@@ -386,7 +386,7 @@ end
 
 #### Automated Verification:
 
-- [ ] No errors when switching windows
+- [x] No errors when switching windows
 
 #### Manual Verification:
 

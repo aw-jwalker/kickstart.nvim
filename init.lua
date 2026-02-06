@@ -651,7 +651,14 @@ require('lazy').setup({
     },
     opts = {
       notify_on_error = false,
-      format_on_save = false, -- Disabled: use :Format or <leader>f to format manually
+      format_on_save = function(bufnr)
+        -- Only auto-format markdown files on save
+        local ft = vim.bo[bufnr].filetype
+        if ft == 'markdown' then
+          return { timeout_ms = 500, lsp_format = 'fallback' }
+        end
+        return false
+      end,
       formatters_by_ft = {
         lua = { 'stylua' },
         javascript = { 'prettierd', 'prettier', stop_after_first = true },

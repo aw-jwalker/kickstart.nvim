@@ -49,6 +49,7 @@ return {
       { '<leader>t', group = '[T]oggle' },
       { '<leader>g', group = '[G]it' },
       { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+      { '<leader>x', group = '[x]-Terminal' },
       { ']', group = 'Next' },
       { '[', group = 'Prev' },
     },

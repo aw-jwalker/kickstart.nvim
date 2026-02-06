@@ -43,6 +43,7 @@ return {
     { '<leader>e', function() Snacks.explorer() end, desc = 'File Explorer' },
     -- Terminal
     { '<C-\\>', function() Snacks.terminal() end, desc = 'Toggle Terminal' },
+    { '<leader>xt', function() Snacks.terminal() end, desc = 'Open Terminal' },
     -- Lazygit
     { '<leader>xl', function() Snacks.lazygit() end, desc = 'Open Lazygit' },
     -- Notifications
